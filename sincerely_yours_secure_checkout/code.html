@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETERNA | Secure Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#495f84",
+                        "surface-container-high": "#eae8e3",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "primary-fixed-dim": "#b1c7f2",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#dbc1b8",
+                        "primary-container": "#001b3d",
+                        "on-primary-fixed-variant": "#31476b",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-container": "#858383",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#f0eee9",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary-fixed-variant": "#55433c",
+                        "on-surface": "#1b1c19",
+                        "on-primary-container": "#6f84ac",
+                        "surface-variant": "#e4e2dd",
+                        "surface-dim": "#dbdad5",
+                        "on-surface-variant": "#44474e",
+                        "surface": "#fbf9f4",
+                        "inverse-primary": "#b1c7f2",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "outline": "#74777f",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "secondary": "#6e5a53",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#261813",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#f5dad1",
+                        "tertiary-container": "#1c1b1b",
+                        "secondary-fixed": "#f8ddd4",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-secondary-container": "#725e57",
+                        "surface-container-highest": "#e4e2dd",
+                        "accent-gold": "#D4AF37", /* Champagne Gold */
+                        "accent-navy": "#001b3d",
+                        "accent-blush": "#f5dad1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "120px",
+                        "xl": "80px",
+                        "gutter": "32px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-mobile": "20px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-active { color: #001b3d; border-bottom: 1px solid #001b3d; }
+        .step-inactive { color: #44474e; opacity: 0.5; }
+        input:focus { outline: none; border-color: #001b3d !important; ring: 0 !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e4e2dd; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-accent-blush">
+<!-- Top Navigation (Shell suppressed for transactional focus, but keeping Brand Identity) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0px_10px_40px_rgba(51,51,51,0.04)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-[1280px] mx-auto">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" onclick="window.history.back()">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-md text-label-md uppercase tracking-widest hidden md:inline">Return to Atelier</span>
+</button>
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary">AETERNA</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-accent-navy">lock</span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hidden md:inline">Secure Session</span>
+</div>
+</div>
+</header>
+<main class="pt-[120px] pb-xl px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Checkout Steps -->
+<div class="lg:col-span-7 space-y-xl">
+<!-- Stepper -->
+<nav class="flex items-center gap-8 border-b border-surface-variant pb-4">
+<div class="step-active font-label-md text-label-md uppercase tracking-widest pb-2">01 Shipping</div>
+<div class="step-inactive font-label-md text-label-md uppercase tracking-widest pb-2">02 Delivery</div>
+<div class="step-inactive font-label-md text-label-md uppercase tracking-widest pb-2">03 Payment</div>
+</nav>
+<!-- Section 1: Shipping Details -->
+<section class="space-y-lg animate-in fade-in duration-700" id="shipping-section">
+<header>
+<h2 class="font-headline-md text-headline-md text-accent-navy mb-2">Shipping Information</h2>
+<p class="font-body-md text-on-surface-variant">Where should we send your ritual essentials?</p>
+</header>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="md:col-span-2">
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all placeholder:text-outline-variant" placeholder="ritual@aeterna.com" type="email"/>
+</div>
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">First Name</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Last Name</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Address</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all" placeholder="Street and number" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">City</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Postal Code</label>
+<input class="w-full bg-surface-bright border-b border-outline-variant py-3 px-0 focus:border-accent-navy transition-all" type="text"/>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="w-full md:w-auto bg-primary text-surface px-12 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-navy transition-colors" onclick="nextStep()" type="button">
+                                Continue to Delivery
+                            </button>
+</div>
+</form>
+</section>
+<!-- Section 2: Delivery Method (Hidden Initially) -->
+<section class="hidden space-y-lg animate-in slide-in-from-bottom-4 duration-500" id="delivery-section">
+<header>
+<h2 class="font-headline-md text-headline-md text-accent-navy mb-2">Delivery Method</h2>
+<p class="font-body-md text-on-surface-variant">Choose your preferred pace of arrival.</p>
+</header>
+<div class="space-y-4">
+<!-- Option 1 -->
+<label class="group flex items-center justify-between p-6 border border-outline-variant hover:border-accent-navy cursor-pointer transition-all bg-surface-bright">
+<div class="flex items-center gap-4">
+<input checked="" class="text-accent-navy focus:ring-0" name="delivery" type="radio"/>
+<div>
+<p class="font-body-lg text-on-surface font-medium">Standard Ritual Delivery</p>
+<p class="font-body-sm text-on-surface-variant">4-6 Business Days • Eco-conscious packaging</p>
+</div>
+</div>
+<span class="font-label-md text-accent-navy">Complimentary</span>
+</label>
+<!-- Option 2 -->
+<label class="group flex items-center justify-between p-6 border border-outline-variant hover:border-accent-navy cursor-pointer transition-all bg-surface-bright">
+<div class="flex items-center gap-4">
+<input class="text-accent-navy focus:ring-0" name="delivery" type="radio"/>
+<div>
+<p class="font-body-lg text-on-surface font-medium">Priority Essence</p>
+<p class="font-body-sm text-on-surface-variant">1-2 Business Days • Hand-wrapped</p>
+</div>
+</div>
+<span class="font-label-md text-accent-navy">$25.00</span>
+</label>
+</div>
+<div class="pt-4">
+<button class="w-full md:w-auto bg-primary text-surface px-12 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-accent-navy transition-colors" onclick="nextToPayment()" type="button">
+                            Continue to Payment
+                        </button>
+</div>
+</section>
+<!-- Section 3: Payment (Hidden Initially) -->
+<section class="hidden space-y-lg animate-in slide-in-from-bottom-4 duration-500" id="payment-section">
+<header>
+<h2 class="font-headline-md text-headline-md text-accent-navy mb-2">Payment Details</h2>
+<p class="font-body-md text-on-surface-variant">Transactions are encrypted and secured.</p>
+</header>
+<div class="bg-surface-container-low p-8 rounded-lg space-y-6">
+<div class="flex justify-between items-center border-b border-surface-variant pb-4">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<span class="font-label-md text-label-md uppercase">Credit or Debit Card</span>
+</div>
+<div class="flex gap-2">
+<div class="w-8 h-5 bg-white border border-outline-variant rounded-sm flex items-center justify-center text-[8px] font-bold">VISA</div>
+<div class="w-8 h-5 bg-white border border-outline-variant rounded-sm flex items-center justify-center text-[8px] font-bold">MC</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Card Number</label>
+<input class="w-full bg-white border-b border-outline-variant py-3 px-4 focus:border-accent-navy transition-all tracking-widest" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">Expiry Date</label>
+<input class="w-full bg-white border-b border-outline-variant py-3 px-4 focus:border-accent-navy transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md uppercase mb-2 block text-on-surface-variant">CVC</label>
+<input class="w-full bg-white border-b border-outline-variant py-3 px-4 focus:border-accent-navy transition-all" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-accent-navy text-surface px-12 py-5 font-label-md text-label-md uppercase tracking-[0.2em] hover:opacity-90 transition-all flex items-center justify-center gap-3" type="button">
+                            Complete Order — $345.00
+                        </button>
+<p class="text-center mt-4 font-body-sm text-on-surface-variant">By completing your order, you agree to our <a class="underline" href="#">Terms of Service</a>.</p>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<aside class="lg:col-span-5">
+<div class="sticky top-[140px] bg-accent-blush/20 border border-accent-blush/30 p-8 md:p-10 space-y-8">
+<h3 class="font-headline-sm text-headline-sm text-accent-navy border-b border-accent-blush/50 pb-4">Order Summary</h3>
+<!-- Item List -->
+<div class="space-y-6 max-h-[400px] overflow-y-auto custom-scrollbar pr-4">
+<!-- Item 1 -->
+<div class="flex gap-6">
+<div class="w-20 h-24 bg-surface-variant shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" data-alt="A high-end, minimalist glass bottle of artisanal room spray sitting on a textured linen surface. The lighting is soft and diffused, highlighting the delicate amber liquid and a clean, typographic label. The background is a soft beige, evoking a sense of calm and luxury within a modern, minimalist home environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO_6T86cNecYrMl1hjaeCT5Fr74EzSPmefsi27ZbC_3XpQ08P5GpQoxHQgVm63up5JfUJa4iNMRy5Plg9ucx-eB-vUUXyMVM0jlaoI1UERIJ_CfmXpEWbKlhcA_iRv3-R8RCKID1h7E5D2ETrlvVcco7_PNg13jDXc1a6dWJcMYmrQjZLHfUDwmn4EHBGhOPx9VTqnbv5U1I_vUbm3iNcML2_5yWN4a1yYsrbOrYcWX0-1YXMPVMuAMtRlP7hsW8_tt9XPIyDy4FEb"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h4 class="font-body-lg text-on-surface font-medium leading-tight">Solstice Room Essence</h4>
+<p class="font-body-sm text-on-surface-variant">100ml / Limited Edition</p>
+</div>
+<p class="font-label-md text-accent-navy">Qty: 1 — $120.00</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-6">
+<div class="w-20 h-24 bg-surface-variant shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" data-alt="A sculptural, matte black ceramic candle holder with a hand-poured white wax candle. It is positioned on a dark wooden shelf against a pale blush wall. The scene is lit by a single, focused warm light source that creates long, elegant shadows, emphasizing the organic shape of the ceramic and the premium editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGkWKjdd9JguY3msD1uUfLmB62Vbr2wQvKd-che78NHurrXF4vomAWF4onhBFLDjsPl7ehwB9pKTNpNuD3DEiRVQRRjN1vDzVLurK33llp6jeh0fTdhkfb7TSO2BZ7pO96uspbhlekZaSCAaOtRir2HE5IBLWyv_ZM3fS0yek-93IXon5fyNJ4HuSOQpnsLwvk0F0dUZnHumcEFB-Vng7kAIJtEwwvKNXcJwcguClOC4gRi8BTXT4WF7URhL0dI5ROT0l39yIXIoDK"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h4 class="font-body-lg text-on-surface font-medium leading-tight">Obsidian Candle Pillar</h4>
+<p class="font-body-sm text-on-surface-variant">Ceramic / No. 04</p>
+</div>
+<p class="font-label-md text-accent-navy">Qty: 1 — $225.00</p>
+</div>
+</div>
+</div>
+<!-- Totals -->
+<div class="pt-6 border-t border-accent-blush/50 space-y-3">
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md">Subtotal</span>
+<span class="font-body-md">$345.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md">Shipping</span>
+<span class="font-body-md italic">Calculated at next step</span>
+</div>
+<div class="flex justify-between pt-4 border-t border-accent-blush/50">
+<span class="font-headline-sm text-accent-navy">Total</span>
+<span class="font-headline-sm text-accent-navy">USD $345.00</span>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="bg-white/40 p-4 rounded-sm flex items-center gap-4">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-body-sm leading-snug">Secure checkout powered by AETERNA Vault. Your data is never shared.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer (Simplified for Checkout) -->
+<footer class="bg-surface-container-low w-full py-lg mt-xl">
+<div class="flex flex-col items-center justify-center px-margin-mobile space-y-8">
+<h2 class="font-display-lg text-headline-lg text-primary mb-2">AETERNA</h2>
+<p class="font-body-lg text-on-surface-variant text-center max-w-md italic">"In every detail, an intention. In every scent, a memory."</p>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-accent-navy transition-colors" href="#">Privacy</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-accent-navy transition-colors" href="#">Terms</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-accent-navy transition-colors" href="#">Help</a>
+</div>
+<p class="font-label-md text-label-md uppercase tracking-widest text-outline mt-8 opacity-50">© 2024 AETERNA. THE ART OF INTENTION.</p>
+</div>
+</footer>
+<script>
+        const stepper = document.querySelectorAll('nav > div');
+        const sections = {
+            shipping: document.getElementById('shipping-section'),
+            delivery: document.getElementById('delivery-section'),
+            payment: document.getElementById('payment-section')
+        };
+
+        function nextStep() {
+            sections.shipping.classList.add('hidden');
+            sections.delivery.classList.remove('hidden');
+            
+            stepper[0].classList.replace('step-active', 'step-inactive');
+            stepper[0].innerHTML = '<span class="material-symbols-outlined text-accent-gold text-sm mr-1">check_circle</span> 01 Shipping';
+            stepper[1].classList.replace('step-inactive', 'step-active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextToPayment() {
+            sections.delivery.classList.add('hidden');
+            sections.payment.classList.remove('hidden');
+            
+            stepper[1].classList.replace('step-active', 'step-inactive');
+            stepper[1].innerHTML = '<span class="material-symbols-outlined text-accent-gold text-sm mr-1">check_circle</span> 02 Delivery';
+            stepper[2].classList.replace('step-inactive', 'step-active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Simple micro-interaction for input fields
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-accent-navy');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-accent-navy');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#495f84",
+            "surface-container-high": "#eae8e3",
+            "surface-bright": "#fbf9f4",
+            "inverse-on-surface": "#f2f1ec",
+            "primary-fixed-dim": "#b1c7f2",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#dbc1b8",
+            "primary-container": "#001b3d",
+            "on-primary-fixed-variant": "#31476b",
+            "on-primary-fixed": "#001b3d",
+            "on-tertiary-container": "#858383",
+            "tertiary": "#000000",
+            "tertiary-fixed-dim": "#c8c6c5",
+            "surface-container": "#f0eee9",
+            "error-container": "#ffdad6",
+            "primary": "#000000",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3ee",
+            "on-secondary-fixed-variant": "#55433c",
+            "on-surface": "#1b1c19",
+            "on-primary-container": "#6f84ac",
+            "surface-variant": "#e4e2dd",
+            "surface-dim": "#dbdad5",
+            "on-surface-variant": "#44474e",
+            "surface": "#fbf9f4",
+            "inverse-primary": "#b1c7f2",
+            "tertiary-fixed": "#e5e2e1",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c4c6cf",
+            "outline": "#74777f",
+            "error": "#ba1a1a",
+            "primary-fixed": "#d6e3ff",
+            "inverse-surface": "#30312e",
+            "on-tertiary": "#ffffff",
+            "on-background": "#1b1c19",
+            "secondary": "#6e5a53",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#261813",
+            "on-error-container": "#93000a",
+            "secondary-container": "#f5dad1",
+            "tertiary-container": "#1c1b1b",
+            "secondary-fixed": "#f8ddd4",
+            "on-tertiary-fixed": "#1c1b1b",
+            "background": "#fbf9f4",
+            "on-tertiary-fixed-variant": "#474746",
+            "on-secondary-container": "#725e57",
+            "surface-container-highest": "#e4e2dd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-desktop": "120px",
+            "xl": "80px",
+            "gutter": "32px",
+            "sm": "12px",
+            "md": "24px",
+            "lg": "48px",
+            "xs": "4px",
+            "margin-mobile": "20px",
+            "base": "8px"
+          },
+          "fontFamily": {
+            "label-md": ["Hanken Grotesk"],
+            "headline-sm": ["Playfair Display"],
+            "headline-md": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "headline-xl": ["Playfair Display"]
+          },
+          "fontSize": {
+            "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .ivory-bg { background-color: #fbf9f4; }
+    .navy-text { color: #001b3d; }
+    .champagne-gold { color: #d4af37; }
+    .stagger-in > * { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .stagger-in.visible > * { opacity: 1; transform: translateY(0); }
+    .parallax-img { transition: transform 0.1s ease-out; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-[0px_10px_40px_rgba(51,51,51,0.04)] transition-all duration-300">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-secondary-container transition-colors duration-500" href="#">The Philosophy</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary hover:text-secondary-container transition-colors duration-500" href="#">Scent Rituals</a>
+</div>
+</div>
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-primary-fixed uppercase font-bold">AETERNA</h1>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer">search</span>
+<button class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-secondary-container transition-colors duration-500">Ritual (0)</button>
+</div>
+</nav>
+</header>
+<main class="pt-[100px]">
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg grid grid-cols-1 md:grid-cols-12 gap-gutter items-center min-h-[707px]">
+<div class="md:col-span-6 space-y-md stagger-in" id="hero-text">
+<div class="space-y-sm">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary">Aeterna Atelier</span>
+<h2 class="font-headline-xl text-headline-xl text-primary leading-none">Lunar Cedar</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+          A nocturnal symphony carved from ancient wood. Inspired by the silver glow of the Himalayan moon reflecting on frozen bark.
+        </p>
+<div class="pt-md flex flex-col sm:flex-row items-baseline gap-lg">
+<span class="font-headline-md text-headline-md text-primary">$285.00</span>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface-variant ml-2">(142 REVIEWS)</span>
+</div>
+</div>
+<div class="flex flex-col gap-md pt-lg">
+<button class="bg-primary text-background font-label-md text-label-md uppercase tracking-widest py-md px-lg w-full md:w-fit hover:bg-on-surface-variant transition-all duration-500 shadow-lg">
+            Add to Ritual
+          </button>
+<div class="flex items-center gap-sm">
+<input class="w-4 h-4 rounded border-outline text-primary focus:ring-primary" id="engraving" type="checkbox"/>
+<label class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant cursor-pointer" for="engraving">Add Bespoke Engraving (+$25)</label>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 relative flex justify-center items-center">
+<div class="absolute inset-0 bg-secondary-container/20 rounded-full blur-[100px] z-0 scale-75"></div>
+<img alt="Lunar Cedar Fragrance Bottle" class="relative z-10 w-full max-w-[450px] object-contain drop-shadow-2xl parallax-img" data-alt="A luxurious, minimalist glass perfume bottle standing elegantly on a polished dark stone surface. The bottle features a clean, rectangular design with a heavy weighted base and a textured black cap. Soft, cool-toned moonlight filters in from the side, creating ethereal highlights and a sophisticated light-mode aesthetic. The setting is a serene, high-end studio with a backdrop of soft ivory and pale blush, conveying a mood of timeless elegance and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHkt99i08Lqd7O66Y--xpUEOn-89I8CMB_4E_3LHUaYHkRwUHV2ZZ745HzEO-iAmMKPmHGuI3qP828HSYDuTWLiaIsjrYg1th0AR8S6FksrKzDd6GhFarlTOChphYbKqYyneL2a90pm8kZhWm9DgpsexHsCSHz_4AZhjj6MxIIYxHqlN1h8LHOgQasH8-EHUCb4D8wp4UeWjQeXjBdJbI6o_Dyu2Vdr9Az2bXHO5TSNeUkHMuFWczsAab2D8FMb6BlJtWftA1OVm9-"/>
+</div>
+</section>
+<!-- Scent Architecture -->
+<section class="bg-surface-container-low py-xl">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h3 class="font-headline-lg text-headline-lg text-center mb-xl text-primary">Scent Architecture</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Top -->
+<div class="p-lg flex flex-col items-center text-center space-y-md border border-outline/10 bg-surface transition-transform hover:-translate-y-2 duration-500">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary">The Awakening</span>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">filter_drama</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm">White Bergamot</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Top Notes</p>
+<p class="font-body-sm text-body-sm px-md">A crisp, citrusy clarity that cuts through the silence like the first breath of mountain air.</p>
+</div>
+<!-- Heart -->
+<div class="p-lg flex flex-col items-center text-center space-y-md border border-outline/10 bg-surface transition-transform hover:-translate-y-2 duration-500">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary">The Soul</span>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-wrap">Rare Jasmine Sambac</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Heart Notes</p>
+<p class="font-body-sm text-body-sm px-md">Hand-picked at midnight, these blossoms exhale a rich, creamy floralcy that lingers.</p>
+</div>
+<!-- Base -->
+<div class="p-lg flex flex-col items-center text-center space-y-md border border-outline/10 bg-surface transition-transform hover:-translate-y-2 duration-500">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary">The Anchor</span>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">forest</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm">Himalayan Cedar</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Base Notes</p>
+<p class="font-body-sm text-body-sm px-md">Solid, smoky, and grounding. The ancient resonance of timber against the skin.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Bento -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-2 bg-surface p-lg border border-outline/10 flex flex-col justify-between min-h-[300px]">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Intention</h4>
+<p class="font-headline-md text-headline-md leading-snug">Designed for the quiet hour between dusk and deep night.</p>
+<div class="flex gap-4">
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase rounded-full">Intense</span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface font-label-md text-label-md uppercase rounded-full">Unisex</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg border border-outline/10 flex flex-col items-center justify-center text-center space-y-sm">
+<span class="material-symbols-outlined text-4xl navy-text">hourglass_top</span>
+<h5 class="font-label-md text-label-md uppercase tracking-widest">Longevity</h5>
+<p class="font-headline-sm text-headline-sm">12 Hours+</p>
+</div>
+<div class="bg-surface-container-lowest p-lg border border-outline/10 flex flex-col items-center justify-center text-center space-y-sm">
+<span class="material-symbols-outlined text-4xl navy-text">fluid_med</span>
+<h5 class="font-label-md text-label-md uppercase tracking-widest">Bottle Size</h5>
+<p class="font-headline-sm text-headline-sm">100ml</p>
+</div>
+</div>
+</section>
+<!-- Bespoke Customization -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<div class="bg-inverse-surface text-inverse-on-surface overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 p-xl flex flex-col justify-center space-y-md">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary-fixed-dim">Bespoke Rituals</span>
+<h3 class="font-headline-lg text-headline-lg leading-tight">Your Mark, Etched Forever.</h3>
+<p class="font-body-md text-body-md opacity-80">Make Lunar Cedar uniquely yours with our master-engraving service. A date, a name, or a secret word, meticulously etched into the glass by our artisans.</p>
+<div class="pt-sm">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 font-label-md text-label-md uppercase tracking-widest focus:ring-0 focus:border-white transition-all outline-none" placeholder="ENTER INSCRIPTION (MAX 12 CHARS)" type="text"/>
+</div>
+<button class="border border-white/20 hover:bg-white hover:text-primary transition-all duration-500 py-md px-lg w-fit font-label-md text-label-md uppercase tracking-widest">Preview Engraving</button>
+</div>
+<div class="md:w-1/2 relative h-[400px] md:h-auto">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-60" data-alt="Close-up detail of a master artisan's hands carefully using a precise engraving tool to etch delicate text onto a glass surface. The lighting is focused and dramatic, highlighting the microscopic dust of glass and the steady, artistic movement. The aesthetic is monochromatic and sophisticated, with deep shadows and sharp, crisp highlights, reflecting a mood of focused craftsmanship and high-end luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcOTSO83CZNY-hLDacODUJSJw0wIg8pgyMGI1jtskI82hCH22B20V7n5J1_rPtAC-CSNeLvm0wOVVgWCjyIrKHoW_PAUWLqso-xkCdjQPfqFDkhMgyp2nGsjTzxY3hctKQNP5N1h2kN67-UHJmP5U5HoeSnIN0uwpCI3A0qT0q6C6OhK_6j3XZvn--vNCz6RUt8XI1dI6TiITluDBs3TgABlqWbXOqWQxy_ppVg45_KvNf8PCCuiLajY_85WBehNZq4iPEmzcuZMPw"/>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl">
+<div class="space-y-sm">
+<h3 class="font-headline-lg text-headline-lg">Customer Stories</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The resonance of our scent through your lens.</p>
+</div>
+<button class="font-label-md text-label-md uppercase tracking-widest border-b border-primary pb-1 hover:opacity-70 transition-opacity">Write a Review</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Review 1 -->
+<div class="bg-surface p-lg border-b border-outline/10 space-y-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-body-lg text-body-lg italic">"A hauntingly beautiful scent. It feels like wearing moonlight. The longevity is incredible—I can still smell the cedar on my skin the next morning."</p>
+<p class="font-label-md text-label-md uppercase tracking-widest mt-lg text-primary">— ELARA V.</p>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface p-lg border-b border-outline/10 space-y-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-body-lg text-body-lg italic">"The transition from the bright bergamot to that deep, resinous cedar is absolute poetry. It's my signature for evening galas and quiet reading sessions alike."</p>
+<p class="font-label-md text-label-md uppercase tracking-widest mt-lg text-primary">— JULIAN M.</p>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] champagne-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-xl">
+<div class="flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop space-y-8 max-w-[1280px] mx-auto">
+<h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-fixed mb-8 uppercase font-bold">AETERNA</h2>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Atelier</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</div>
+<div class="w-1/4 border-t border-outline/10 my-8"></div>
+<p class="font-body-lg text-body-lg text-center text-on-surface-variant">© 2024 AETERNA. THE ART OF INTENTION.</p>
+<div class="flex gap-6 mt-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">local_mall</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">favorite</span>
+</div>
+</div>
+</footer>
+<script>
+    // Reveal animation on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stagger-in').forEach(el => observer.observe(el));
+
+    // Simple Parallax Effect for the product bottle
+    window.addEventListener('mousemove', (e) => {
+      const img = document.querySelector('.parallax-img');
+      if (!img) return;
+      const x = (window.innerWidth / 2 - e.pageX) / 50;
+      const y = (window.innerHeight / 2 - e.pageY) / 50;
+      img.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+
+    // Initial state trigger
+    window.addEventListener('load', () => {
+      document.getElementById('hero-text').classList.add('visible');
+    });
+
+    // Nav Background on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('py-4');
+        header.classList.remove('py-6');
+      } else {
+        header.classList.add('py-6');
+        header.classList.remove('py-4');
+      }
+    });
+  </script>
+</body></html>

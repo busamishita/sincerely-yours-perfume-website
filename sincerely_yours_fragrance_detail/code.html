@@ -1,0 +1,364 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sincerely Yours | Scent Ritual</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "surface": "#fbf9f4",
+                        "secondary": "#6e5a53",
+                        "on-secondary-fixed": "#261813",
+                        "surface-container-highest": "#e4e2dd",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#b1c7f2",
+                        "on-background": "#1b1c19",
+                        "outline-variant": "#c4c6cf",
+                        "on-surface": "#1b1c19",
+                        "surface-tint": "#495f84",
+                        "on-secondary-fixed-variant": "#55433c",
+                        "on-primary-container": "#6f84ac",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed-dim": "#dbc1b8",
+                        "surface-container-high": "#eae8e3",
+                        "surface-bright": "#fbf9f4",
+                        "on-primary-fixed-variant": "#31476b",
+                        "surface-container-low": "#f5f3ee",
+                        "primary": "#000000",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-container": "#858383",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed": "#e5e2e1",
+                        "inverse-primary": "#b1c7f2",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-container": "#725e57",
+                        "primary-container": "#001b3d",
+                        "secondary-container": "#f5dad1",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001b3d",
+                        "outline": "#74777f",
+                        "on-surface-variant": "#44474e",
+                        "tertiary": "#000000",
+                        "background": "#fbf9f4",
+                        "secondary-fixed": "#f8ddd4",
+                        "tertiary-container": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "gutter": "32px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "120px",
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "container-max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-xl": ["60px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000000;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center px-6 md:px-margin-desktop py-6 w-full max-w-container-max-width mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<a class="font-headline-md text-headline-sm tracking-tighter text-primary" href="#">Sincerely Yours</a>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary" href="#">Scent Rituals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Atelier</a>
+</nav>
+<div class="font-label-md text-label-md uppercase tracking-widest text-primary">Ritual (0)</div>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 reveal-up relative active">
+<div class="aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Aeterna Signature Fragrance" class="w-full h-full object-cover transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5nUPjdF486N91geGYW0Q8b0yv_4rjUEdDKGLrhyj0VDZJbp2jxlVZrxdcC7V7voUW3AYyRWBFJL2KR36eZ10t5DTaQpOrmXMG3G_eySLkreLyAfpN3dhSyRuvAVE2GKuQirdjbgxipvnG0RdC3YPCq7Oq3cCg8bsyfPVFiPV2VUvE5g1W9XLv_EGeBLwc3y64stC6djksPg3NEpj4tTpkolSs7PCOC1UlA9AiiEsk9C754R--ciDsKbmsfOBYCU9ZJ7v7VYWXHg9x">
+</div>
+<!-- Float Decoration -->
+<div class="absolute -bottom-10 -right-10 hidden lg:block w-48 aspect-square bg-surface-bright p-6 shadow-sm border border-surface-container-highest">
+<div class="w-full h-full border border-outline-variant flex items-center justify-center p-4">
+<p class="text-center font-label-md text-[10px] uppercase tracking-[0.2em] text-outline">The Alchemy of Stillness</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 flex flex-col justify-center reveal-up mt-12 md:mt-0 active" style="transition-delay: 200ms;">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-4">Edition 01</span>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl mb-6 leading-[1.0]">Lunar <br> Cedar</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-md">
+                    A celestial journey distilled into a singular scent. Cooling ozone meets the grounded warmth of ancient woods, designed for the quiet moments of the dusk ritual.
+                </p>
+<!-- Details Grid -->
+<div class="grid grid-cols-3 gap-8 mb-12 border-t border-b border-surface-container-highest py-8"><div class="col-span-3 mb-4">
+    <span class="block font-label-md text-[10px] uppercase text-outline mb-2">Price</span>
+    <div class="flex items-baseline gap-3"><p class="font-headline-md text-headline-sm text-primary">$135.00</p><p class="font-body-md text-body-sm text-on-surface-variant line-through opacity-50">$155.00</p></div>
+</div>
+<div>
+<span class="block font-label-md text-[10px] uppercase text-outline mb-2">Strength</span>
+<p class="font-body-md text-body-md font-medium italic">Intense</p>
+</div>
+<div>
+<span class="block font-label-md text-[10px] uppercase text-outline mb-2">Longevity</span>
+<p class="font-body-md text-body-md font-medium italic">12 Hours+</p>
+</div>
+<div>
+<span class="block font-label-md text-[10px] uppercase text-outline mb-2">Size</span>
+<p class="font-body-md text-body-md font-medium italic">100ml</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary text-on-primary py-6 font-label-md text-label-md uppercase tracking-widest transition-all duration-300 hover:opacity-90 group flex items-center justify-center gap-2">
+                        Add to Ritual
+                        <span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">auto_awesome</span>
+</button>
+<button class="w-full border border-primary py-6 font-label-md text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-colors duration-300">
+                        Explore Atelier Story
+                    </button>
+</div>
+</div>
+</section>
+<!-- Scent Profile -->
+<section class="mt-section-gap reveal-up active">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8">The Scent Architecture</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-prose">
+                        Our extraction process honors the time-sensitive nature of organic ingredients. Every bottle is hand-poured in our sun-drenched atelier, ensuring the integrity of the molecular structure.
+                    </p>
+<div class="mt-16 space-y-12">
+<!-- Top Note -->
+<div class="group">
+<div class="flex items-end gap-4 mb-3">
+<span class="font-headline-xl text-[48px] text-surface-container-highest group-hover:text-secondary-container transition-colors duration-500 leading-none">01</span>
+<h3 class="font-headline-md text-headline-sm mb-1">Top: White Bergamot</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant border-l-2 border-surface-container-highest pl-6 group-hover:border-primary transition-colors duration-500">
+                                A burst of luminous citrus and crushed ozone that awakens the senses instantly.
+                            </p>
+</div>
+<!-- Heart Note -->
+<div class="group">
+<div class="flex items-end gap-4 mb-3">
+<span class="font-headline-xl text-[48px] text-surface-container-highest group-hover:text-secondary-container transition-colors duration-500 leading-none">02</span>
+<h3 class="font-headline-md text-headline-sm mb-1">Heart: Rare Jasmine Sambac</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant border-l-2 border-surface-container-highest pl-6 group-hover:border-primary transition-colors duration-500">
+                                Delicate, nocturnal floral notes that bloom on the skin after twenty minutes.
+                            </p>
+</div>
+<!-- Base Note -->
+<div class="group">
+<div class="flex items-end gap-4 mb-3">
+<span class="font-headline-xl text-[48px] text-surface-container-highest group-hover:text-secondary-container transition-colors duration-500 leading-none">03</span>
+<h3 class="font-headline-md text-headline-sm mb-1">Base: Himalayan Cedar</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant border-l-2 border-surface-container-highest pl-6 group-hover:border-primary transition-colors duration-500">
+                                Deep, balsamic wood resins that anchor the scent for an enduring presence.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Atmospheric Visualization: Using Accent (Pale Blush - secondary-container) -->
+<div class="relative flex items-center justify-center bg-secondary-container min-h-[600px] overflow-hidden">
+<div class="relative z-10 p-12 text-center">
+<div class="w-px h-32 bg-primary mx-auto mb-8"></div>
+<p class="font-headline-md italic text-primary">"A scent like the memory of rain on warm stone."</p>
+<div class="w-px h-32 bg-primary mx-auto mt-8"></div>
+</div>
+<div class="absolute inset-0 border-[40px] border-surface/20 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Customization Summary -->
+<section class="mt-section-gap reveal-up active">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-12 text-center">Tailor Your Presence</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Case Selection -->
+<div class="md:col-span-2 bg-surface-container p-12 flex flex-col justify-between group hover:bg-secondary-container transition-colors duration-500 cursor-pointer">
+<div>
+<span class="font-label-md text-[10px] uppercase text-outline mb-6 block">Personalization</span>
+<h4 class="font-headline-md text-headline-sm mb-4">Bespoke Engraving</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Etch initials or a significant date into the crystal glass. A legacy in every line.</p>
+</div>
+<div class="mt-8 flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-widest underline underline-offset-8">Configure</span>
+<span class="material-symbols-outlined transform group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Refill Ritual: Using Primary Container (Deep Navy) -->
+<div class="bg-primary-container text-on-primary p-12 flex flex-col justify-between group cursor-pointer">
+<div>
+<span class="font-label-md text-[10px] uppercase opacity-50 mb-6 block">Sustainability</span>
+<h4 class="font-headline-md text-headline-sm mb-4 text-white">Refill Program</h4>
+<p class="font-body-md text-body-md text-on-primary-container">Join our infinite cycle. Return your bottle for a ritual cleansing and refill.</p>
+</div>
+<div class="mt-8">
+<span class="material-symbols-outlined text-[32px] font-variation-settings-'FILL' 1 text-white">eco</span>
+</div>
+</div>
+<!-- Discovery Size -->
+<div class="bg-surface-container-high p-12 flex flex-col justify-between group hover:bg-secondary-container transition-colors duration-500 cursor-pointer">
+<div>
+<span class="font-label-md text-[10px] uppercase text-outline mb-6 block">Travel</span>
+<h4 class="font-headline-md text-headline-sm mb-4">Atelier 10ml</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Your sanctuary, wherever you wander. Solid brass protective sleeve.</p>
+</div>
+<div class="mt-8 font-label-md text-label-md uppercase tracking-widest text-primary">+ Add Size</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap">
+<div class="flex flex-col items-center justify-center px-6 md:px-margin-desktop space-y-8 max-w-container-max-width mx-auto">
+<h2 class="font-headline-md text-headline-lg text-primary mb-8">Sincerely Yours</h2>
+<nav class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Atelier</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</nav>
+<div class="w-full max-w-xs border-b border-outline-variant pt-12 pb-2">
+<input class="w-full bg-transparent border-none text-center font-label-md text-label-md uppercase tracking-widest focus:ring-0 placeholder:text-outline-variant" placeholder="JOIN THE CIRCLE" type="email">
+</div>
+<p class="font-body-lg text-body-sm text-center text-on-surface-variant pt-12">© 2024 Sincerely Yours. THE ART OF INTENTION.</p>
+</div>
+</footer>
+<!-- Visual Polish: Custom Cursor -->
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('button, a, .cursor-pointer').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2.5)';
+                cursor.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-4', 'shadow-sm');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.add('py-6');
+                header.classList.remove('py-4', 'shadow-sm');
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

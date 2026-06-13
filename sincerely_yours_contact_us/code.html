@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | AETERNA - Sincerely Yours</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .luxury-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            padding: 12px 0;
+            transition: border-color 0.4s ease;
+        }
+        .luxury-input:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 1px solid #000000;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#495f84",
+                      "surface-container-high": "#eae8e3",
+                      "surface-bright": "#fbf9f4",
+                      "inverse-on-surface": "#f2f1ec",
+                      "primary-fixed-dim": "#b1c7f2",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#dbc1b8",
+                      "primary-container": "#001b3d",
+                      "on-primary-fixed-variant": "#31476b",
+                      "on-primary-fixed": "#001b3d",
+                      "on-tertiary-container": "#858383",
+                      "tertiary": "#000000",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "surface-container": "#f0eee9",
+                      "error-container": "#ffdad6",
+                      "primary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f5f3ee",
+                      "on-secondary-fixed-variant": "#55433c",
+                      "on-surface": "#1b1c19",
+                      "on-primary-container": "#6f84ac",
+                      "surface-variant": "#e4e2dd",
+                      "surface-dim": "#dbdad5",
+                      "on-surface-variant": "#44474e",
+                      "surface": "#fbf9f4",
+                      "inverse-primary": "#b1c7f2",
+                      "tertiary-fixed": "#e5e2e1",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "outline": "#74777f",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#d6e3ff",
+                      "inverse-surface": "#30312e",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1b1c19",
+                      "secondary": "#6e5a53",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#261813",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#f5dad1",
+                      "tertiary-container": "#1c1b1b",
+                      "secondary-fixed": "#f8ddd4",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-secondary-container": "#725e57",
+                      "surface-container-highest": "#e4e2dd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "120px",
+                      "xl": "80px",
+                      "gutter": "32px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "lg": "48px",
+                      "xs": "4px",
+                      "margin-mobile": "20px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-sm": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg": ["Playfair Display"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-xl": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-primary font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-[0px_10px_40px_rgba(51,51,51,0.04)]">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary" data-icon="menu">menu</button>
+<span class="hidden md:inline font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">The Philosophy</span>
+</div>
+<a class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-primary-fixed" href="#">AETERNA</a>
+<div class="flex items-center gap-6">
+<a class="hidden md:inline font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary" href="#">Contact</a>
+<button class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-secondary-container transition-colors duration-500">Ritual (0)</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-xl">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mb-lg md:mb-xl fade-in-section">
+<div class="max-w-2xl">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-4 block">Sincerely Yours</span>
+<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">Begin your inquiry.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">Whether seeking a bespoke scent ritual or scheduling an Atelier visit, our concierge is here to assist with quiet precision.</p>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Inquiry Form -->
+<div class="lg:col-span-7 fade-in-section" style="transition-delay: 200ms;">
+<div class="bg-surface-container-lowest p-8 md:p-12 border border-black/5">
+<h2 class="font-headline-sm text-headline-sm mb-10">Direct Message</h2>
+<form class="space-y-8" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant mb-1" for="name">Full Name</label>
+<input class="luxury-input font-body-md text-primary" id="name" name="name" placeholder="Evelyn Thorne" required="" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant mb-1" for="email">Email Address</label>
+<input class="luxury-input font-body-md text-primary" id="email" name="email" placeholder="evelyn@aeterna.com" required="" type="email"/>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant mb-1" for="interest">Inquiry Type</label>
+<select class="luxury-input font-body-md text-primary appearance-none cursor-pointer" id="interest" name="interest">
+<option value="general">General Correspondence</option>
+<option value="atelier">Atelier Appointment</option>
+<option value="concierge">Concierge Service</option>
+<option value="press">Press &amp; Media</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md uppercase text-on-surface-variant mb-1" for="message">Your Message</label>
+<textarea class="luxury-input font-body-md text-primary resize-none" id="message" name="message" placeholder="How may we assist in your journey?" required="" rows="4"></textarea>
+</div>
+<div class="pt-4">
+<button class="group relative overflow-hidden bg-primary text-surface px-10 py-4 flex items-center gap-3 transition-all hover:bg-black" type="submit">
+<span class="font-label-md text-label-md uppercase tracking-widest relative z-10">Send Inquiry</span>
+<span class="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+<div class="absolute inset-0 bg-[#D4AF37]/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right: Details & Visuals -->
+<div class="lg:col-span-5 flex flex-col gap-gutter fade-in-section" style="transition-delay: 400ms;">
+<!-- Atelier Visit -->
+<div class="bg-surface-container p-8 border border-black/5">
+<h3 class="font-headline-sm text-headline-sm mb-4">Atelier Visit</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Experience our complete collection of scent rituals in person. Located in the heart of the historic district, our atelier is open by private appointment only.</p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md">12 Rue des Archives, Paris 75004</span>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+<span class="font-body-md text-body-md">Tues — Sat, 11:00 — 18:00</span>
+</div>
+</div>
+</div>
+<!-- Concierge Service -->
+<div class="bg-secondary-container/30 p-8 border border-black/5">
+<h3 class="font-headline-sm text-headline-sm mb-4">Concierge Service</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Our dedicated concierge is available for personalized gift curation and corporate scent identities.</p>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary/20 pb-1 hover:border-primary transition-all" href="mailto:concierge@aeterna.com">
+                        concierge@aeterna.com
+                    </a>
+</div>
+<!-- Aesthetic Image -->
+<div class="h-64 md:h-full min-h-[300px] relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of a luxury stationery set resting on a dark walnut desk. Beside it is a sophisticated navy blue bottle of perfume with a gold cap. The lighting is soft and moody, coming from a nearby window, casting gentle shadows across the ivory textured paper. The scene exudes an editorial, high-end atmosphere of quiet luxury and intentionality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQPCnbuxAdWKwzyVhfdeP1iIAkp3V9ZAoCsZZ8M3FbFbOUynQQHzshTfKNdDMjku-8Oox4ZKizCMccZEf97xDrVg1aIyZ3HQxhNU2Gm0sfYXmF1bdw7fqS9PEASm2msoE_5hzc4ceDxoOmmecx5y8pw_tx_aGuQ-LIWtO-Fap3QVWGeaKjvmW8PDunw-IGZAio3ox9RLPdFM23apWIaS-4KrRzBdR292HEK3DNXM_qPVjGqkyM7x8J7w5eRuR1jusron6aXBzmwoXt"/>
+</div>
+</div>
+</section>
+<!-- Social Connections -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mt-xl fade-in-section">
+<div class="border-t border-black/5 pt-lg flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-4">Follow the Journey</h4>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md hover:text-secondary transition-colors" href="#">Pinterest</a>
+<a class="font-body-md text-body-md hover:text-secondary transition-colors" href="#">Journal</a>
+</div>
+</div>
+<div class="text-center md:text-right">
+<p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-2">Office Hours</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mon — Fri, 09:00 — 17:00 GMT</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-xl bg-surface-container-low dark:bg-inverse-surface">
+<div class="flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop space-y-8 max-w-[1440px] mx-auto">
+<span class="font-display-lg text-headline-lg text-primary dark:text-on-primary-fixed mb-8">AETERNA</span>
+<nav class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Atelier</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</nav>
+<div class="pt-8 border-t border-black/5 w-full flex flex-col items-center">
+<p class="font-body-lg text-body-lg text-center text-on-surface-variant">© 2024 AETERNA. THE ART OF INTENTION.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Interaction Logic for Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="font-label-md text-label-md uppercase tracking-widest relative z-10">Sending...</span>';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span class="font-label-md text-label-md uppercase tracking-widest relative z-10">Sent With Intention</span>';
+                btn.classList.add('bg-secondary');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-secondary');
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body></html>
