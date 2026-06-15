@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETERNA | Custom Perfume Ritual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-secondary": "#ffffff",
+                "surface": "#fbf9f4",
+                "secondary": "#6e5a53",
+                "on-secondary-fixed": "#261813",
+                "surface-container-highest": "#e4e2dd",
+                "error-container": "#ffdad6",
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#1c1b1b",
+                "primary-fixed-dim": "#b1c7f2",
+                "on-background": "#1b1c19",
+                "outline-variant": "#c4c6cf",
+                "on-surface": "#1b1c19",
+                "surface-tint": "#495f84",
+                "on-secondary-fixed-variant": "#55433c",
+                "on-primary-container": "#6f84ac",
+                "on-tertiary": "#ffffff",
+                "surface-variant": "#e4e2dd",
+                "inverse-surface": "#30312e",
+                "secondary-fixed-dim": "#dbc1b8",
+                "surface-container-high": "#eae8e3",
+                "surface-bright": "#fbf9f4",
+                "on-primary-fixed-variant": "#31476b",
+                "surface-container-low": "#f5f3ee",
+                "primary": "#000000",
+                "surface-container": "#f0eee9",
+                "on-tertiary-container": "#858383",
+                "primary-fixed": "#d6e3ff",
+                "tertiary-fixed": "#e5e2e1",
+                "inverse-primary": "#b1c7f2",
+                "surface-dim": "#dbdad5",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f2f1ec",
+                "on-secondary-container": "#725e57",
+                "primary-container": "#001b3d",
+                "secondary-container": "#f5dad1",
+                "on-tertiary-fixed-variant": "#474746",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-primary-fixed": "#001b3d",
+                "outline": "#74777f",
+                "on-surface-variant": "#44474e",
+                "tertiary": "#000000",
+                "background": "#fbf9f4",
+                "secondary-fixed": "#f8ddd4",
+                "tertiary-container": "#1c1b1b"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "md": "24px",
+                "xl": "80px",
+                "lg": "48px",
+                "xs": "4px",
+                "sm": "12px",
+                "gutter": "32px",
+                "margin-mobile": "20px",
+                "margin-desktop": "120px",
+                "base": "8px",
+                "container-max-width": "1280px",
+                "section-gap": "120px"
+        },
+        "fontFamily": {
+                "body-lg": ["Hanken Grotesk"],
+                "headline-sm": ["Playfair Display"],
+                "body-md": ["Hanken Grotesk"],
+                "headline-md": ["Playfair Display"],
+                "headline-xl": ["Playfair Display"],
+                "headline-lg-mobile": ["Playfair Display"],
+                "body-sm": ["Hanken Grotesk"],
+                "headline-lg": ["Playfair Display"],
+                "label-md": ["Hanken Grotesk"],
+                "label-sm": ["Hanken Grotesk"]
+        },
+        "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                "label-sm": ["10px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+        .step-transition {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .step-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            position: absolute;
+        }
+        .step-active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+        .option-card.active {
+            border-bottom: 2px solid #000000;
+        }
+        .scent-circle {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f4;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-surface-container-highest transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile py-6 w-full max-w-container-max-width mx-auto">
+<button class="flex items-center gap-2 text-primary font-label-md text-label-md uppercase tracking-widest transition-opacity hover:opacity-60" onclick="handleBack()">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="">Back</span>
+</button>
+<h1 class="font-headline-md text-headline-md tracking-tight text-primary">Sincerely Yours</h1>
+<div class="font-label-md text-label-md uppercase tracking-widest text-primary">
+                Ritual (0)
+            </div>
+</div>
+</header>
+<main class="min-h-screen pt-32 pb-40 px-margin-mobile max-w-[500px] mx-auto">
+<!-- Progress Indicator -->
+<div class="mb-12">
+<div class="flex justify-between mb-4">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant" id="step-label">Step 01 / 04</span>
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-primary">Choice</span>
+</div>
+<div class="h-[1px] w-full bg-surface-container-highest relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary transition-all duration-700 ease-in-out" id="progress-bar" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Step 1: Fragrance Style -->
+<section class="step-transition step-active" id="step-1">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">The Olfactory Path</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select the foundational essence that speaks to your spirit.</p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<button class="option-card group relative p-8 bg-surface-container-low transition-all duration-500 hover:bg-secondary-container text-left" onclick="nextStep(2, 'Floral')">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-1">Delicate</span>
+<h3 class="font-headline-sm text-headline-sm">Floral</h3>
+</div>
+<span class="material-symbols-outlined text-primary opacity-20 group-hover:opacity-100 transition-opacity">spa</span>
+</div>
+</button>
+<button class="option-card group relative p-8 bg-surface-container-low transition-all duration-500 hover:bg-secondary-container text-left" onclick="nextStep(2, 'Woody')">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-1">Grounded</span>
+<h3 class="font-headline-sm text-headline-sm">Woody</h3>
+</div>
+<span class="material-symbols-outlined text-primary opacity-20 group-hover:opacity-100 transition-opacity">forest</span>
+</div>
+</button>
+<button class="option-card group relative p-8 bg-surface-container-low transition-all duration-500 hover:bg-secondary-container text-left" onclick="nextStep(2, 'Fresh')">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-1">Crisp</span>
+<h3 class="font-headline-sm text-headline-sm">Fresh</h3>
+</div>
+<span class="material-symbols-outlined text-primary opacity-20 group-hover:opacity-100 transition-opacity">air</span>
+</div>
+</button>
+<button class="option-card group relative p-8 bg-surface-container-low transition-all duration-500 hover:bg-secondary-container text-left" onclick="nextStep(2, 'Sweet')">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase block mb-1">Enveloping</span>
+<h3 class="font-headline-sm text-headline-sm">Sweet</h3>
+</div>
+<span class="material-symbols-outlined text-primary opacity-20 group-hover:opacity-100 transition-opacity">auto_awesome</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Step 2: Scent Strength -->
+<section class="step-transition step-hidden" id="step-2">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">The Intensity</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">How lingering should your ritual be?</p>
+</div>
+<div class="space-y-12 py-8">
+<div class="flex flex-col items-center gap-8">
+<div class="w-32 h-32 rounded-full border border-primary/10 flex items-center justify-center relative" id="strength-display">
+<div class="bg-secondary-container rounded-full transition-all duration-700 w-4 h-4 blur-sm" id="strength-orb"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary" id="strength-label">Soft</span>
+</div>
+</div>
+<input class="w-full h-[2px] bg-surface-container-highest appearance-none cursor-pointer accent-primary" id="strength-slider" max="4" min="1" oninput="updateStrength(this.value)" step="1" type="range" value="1"/>
+</div>
+<div class="grid grid-cols-4 text-center gap-2">
+<span class="font-label-sm text-label-sm opacity-40">Soft</span>
+<span class="font-label-sm text-label-sm opacity-40">Balanced</span>
+<span class="font-label-sm text-label-sm opacity-40">Strong</span>
+<span class="font-label-sm text-label-sm opacity-40">Intense</span>
+</div>
+<button class="w-full py-6 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-primary/90" onclick="nextStep(3)">
+                    Confirm Strength
+                </button>
+</div>
+</section>
+<!-- Step 3: Recipient -->
+<section class="step-transition step-hidden" id="step-3">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">For Whom</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Identify the recipient of this bespoke alchemy.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="aspect-square bg-surface-container-low flex flex-col items-center justify-center gap-4 transition-all hover:bg-secondary-container group" onclick="nextStep(4, 'Women')">
+<span class="material-symbols-outlined text-3xl opacity-30 group-hover:opacity-100 transition-opacity">female</span>
+<span class="font-label-md text-label-md uppercase">Women</span>
+</button>
+<button class="aspect-square bg-surface-container-low flex flex-col items-center justify-center gap-4 transition-all hover:bg-secondary-container group" onclick="nextStep(4, 'Men')">
+<span class="material-symbols-outlined text-3xl opacity-30 group-hover:opacity-100 transition-opacity">male</span>
+<span class="font-label-md text-label-md uppercase">Men</span>
+</button>
+<button class="aspect-square bg-surface-container-low flex flex-col items-center justify-center gap-4 transition-all hover:bg-secondary-container group" onclick="nextStep(4, 'Unisex')">
+<span class="material-symbols-outlined text-3xl opacity-30 group-hover:opacity-100 transition-opacity">all_inclusive</span>
+<span class="font-label-md text-label-md uppercase">Unisex</span>
+</button>
+<button class="aspect-square bg-surface-container-low flex flex-col items-center justify-center gap-4 transition-all hover:bg-secondary-container group" onclick="nextStep(4, 'Gift')">
+<span class="material-symbols-outlined text-3xl opacity-30 group-hover:opacity-100 transition-opacity">featured_seasonal_and_gifts</span>
+<span class="font-label-md text-label-md uppercase">Gift</span>
+</button>
+</div>
+</section>
+<!-- Step 4: Personalize -->
+<section class="step-transition step-hidden" id="step-4">
+<div class="mb-10 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">The Final Touch</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Craft the vessel for your unique fragrance.</p>
+</div>
+<div class="space-y-12">
+<div class="relative w-full aspect-[3/4] bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-48 h-auto object-contain drop-shadow-2xl transition-transform duration-700" data-alt="A minimalist, high-end luxury perfume bottle design with sharp corners and heavy glass. The background is a clean, sun-drenched minimalist atelier with soft light-mode shadows. The atmosphere is serene, high-end, and quiet luxury, focusing on texture and material quality in a pristine white space." id="bottle-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYRHD7qvWJ0Ax0mJfsDkdymdFVrLgZ6mC474diAUYkUKKYV2FIJRyM8Yk0fLwpARV0i-33wpmp0hjQEm4XOKQ16oVh4yAv5FWSAUZjUlJDPUrbp5_YLj8DiiR2PB-HJQBIKk3D4tGISbBlMkV_osHOg4Q0Ik9ULNdcS_IDL4qBBdIhamm9Np3jDNLu8CEeCeSSviZmXrYlGQPeMi2C9eIhdOwh-9n0SVIDq5hh9J5AT_4y9YB1PGgDc20I4gxeiP8DOO-IbwMEo-pv"/>
+<div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 font-headline-md text-primary/40 text-[12px] uppercase tracking-widest opacity-0 transition-opacity duration-300" id="engraving-preview">AE</div>
+</div>
+<div class="space-y-8">
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest mb-4 block text-on-surface-variant">Bottle Finish</label>
+<div class="flex gap-4">
+<button class="w-8 h-8 rounded-full border border-primary/20 bg-white shadow-sm ring-offset-2 ring-primary transition-all focus:ring-2" onclick="updateBottle('Clear')"></button>
+<button class="w-8 h-8 rounded-full bg-[#B37E4F] ring-offset-2 hover:ring-2 ring-primary transition-all" onclick="updateBottle('Amber')"></button>
+<button class="w-8 h-8 rounded-full bg-surface-dim ring-offset-2 hover:ring-2 ring-primary transition-all" onclick="updateBottle('Frosted')"></button>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm uppercase tracking-widest mb-4 block text-on-surface-variant">Engraved Initials</label>
+<input class="w-full bg-transparent border-b border-primary py-4 px-0 focus:outline-none focus:border-secondary font-headline-sm placeholder:opacity-20" maxlength="2" oninput="updateEngraving(this.value)" placeholder="AE" type="text"/>
+</div>
+<button class="w-full py-6 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-primary/90 flex items-center justify-center gap-2" onclick="finishRitual()">
+                        Complete Ritual
+                        <span class="material-symbols-outlined text-[18px]">done_all</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Final Success View -->
+<section class="step-transition step-hidden text-center py-20" id="step-final">
+<div class="mb-8 flex justify-center">
+<div class="w-20 h-20 rounded-full border border-secondary/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl">check</span>
+</div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4">Intention Set</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Your bespoke essence has been recorded. Our master perfumers will now begin the extraction.</p>
+<button class="font-label-md text-label-md uppercase tracking-widest border-b border-primary pb-2 hover:opacity-60 transition-opacity" onclick="window.location.reload()">
+                Return to Atelier
+            </button>
+</section>
+</main>
+<!-- Contextual FAB -->
+<button class="hidden fixed bottom-10 right-10 w-16 h-16 bg-primary text-on-primary shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 rounded-full" id="cart-fab">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<footer class="bg-surface-container-low w-full py-section-gap mt-auto">
+<div class="flex flex-col items-center justify-center px-margin-mobile space-y-8 max-w-container-max-width mx-auto">
+<div class="font-headline-lg text-headline-lg text-primary mb-8">Sincerely Yours</div>
+<nav class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</nav>
+<p class="font-body-sm text-body-sm text-center text-on-surface-variant/60">© 2024 Sincerely Yours. THE ART OF INTENTION.</p>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        const selections = {};
+
+        function nextStep(step, val) {
+            if (val) selections[`step_${currentStep}`] = val;
+            
+            const currentEl = document.getElementById(`step-${currentStep}`);
+            const nextEl = document.getElementById(`step-${step}`);
+
+            currentEl.classList.remove('step-active');
+            currentEl.classList.add('step-hidden');
+
+            setTimeout(() => {
+                nextEl.classList.remove('step-hidden');
+                nextEl.classList.add('step-active');
+                currentStep = step;
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('progress-bar');
+            const stepLabel = document.getElementById('step-label');
+            const percentage = (currentStep / totalSteps) * 100;
+            
+            if (currentStep <= totalSteps) {
+                progressBar.style.width = `${percentage}%`;
+                stepLabel.innerText = `Step 0${currentStep} / 04`;
+            } else {
+                progressBar.style.width = `100%`;
+                stepLabel.innerText = `Ritual Complete`;
+            }
+        }
+
+        function handleBack() {
+            if (currentStep > 1) {
+                const prevStep = currentStep - 1;
+                const currentEl = document.getElementById(`step-${currentStep}`);
+                const prevEl = document.getElementById(`step-${prevStep}`);
+
+                currentEl.classList.remove('step-active');
+                currentEl.classList.add('step-hidden');
+
+                setTimeout(() => {
+                    prevEl.classList.remove('step-hidden');
+                    prevEl.classList.add('step-active');
+                    currentStep = prevStep;
+                    updateProgress();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 300);
+            }
+        }
+
+        function updateStrength(val) {
+            const orb = document.getElementById('strength-orb');
+            const label = document.getElementById('strength-label');
+            const levels = ['Soft', 'Balanced', 'Strong', 'Intense'];
+            const sizes = ['w-4 h-4', 'w-12 h-12', 'w-20 h-20', 'w-28 h-28'];
+            const blurs = ['blur-sm', 'blur-md', 'blur-lg', 'blur-xl'];
+            
+            label.innerText = levels[val-1];
+            orb.className = `bg-secondary-container rounded-full transition-all duration-700 ${sizes[val-1]} ${blurs[val-1]}`;
+            selections.strength = levels[val-1];
+        }
+
+        function updateBottle(type) {
+            const img = document.getElementById('bottle-preview');
+            img.style.transform = 'scale(1.05)';
+            setTimeout(() => img.style.transform = 'scale(1)', 300);
+            selections.bottle = type;
+        }
+
+        function updateEngraving(val) {
+            const preview = document.getElementById('engraving-preview');
+            if (val.length > 0) {
+                preview.innerText = val.toUpperCase();
+                preview.classList.remove('opacity-0');
+                preview.classList.add('opacity-100');
+            } else {
+                preview.classList.remove('opacity-100');
+                preview.classList.add('opacity-0');
+            }
+            selections.initials = val;
+        }
+
+        function finishRitual() {
+            const step4 = document.getElementById('step-4');
+            const final = document.getElementById('step-final');
+            const fab = document.getElementById('cart-fab');
+
+            step4.classList.remove('step-active');
+            step4.classList.add('step-hidden');
+
+            setTimeout(() => {
+                final.classList.remove('step-hidden');
+                final.classList.add('step-active');
+                fab.classList.remove('hidden');
+                currentStep = 5;
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        }
+
+        // Initialize Strength
+        updateStrength(1);
+    </script>
+</body></html>

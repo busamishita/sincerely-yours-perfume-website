@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Ritual | AETERNA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f4; /* Ivory-Beige Base */
+            color: #000000;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f0eee9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #74777f;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#495f84",
+                      "surface-container-high": "#eae8e3",
+                      "surface-bright": "#fbf9f4",
+                      "inverse-on-surface": "#f2f1ec",
+                      "primary-fixed-dim": "#b1c7f2",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#dbc1b8",
+                      "primary-container": "#001b3d",
+                      "on-primary-fixed-variant": "#31476b",
+                      "on-primary-fixed": "#001b3d",
+                      "on-tertiary-container": "#858383",
+                      "tertiary": "#000000",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "surface-container": "#f0eee9",
+                      "error-container": "#ffdad6",
+                      "primary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f5f3ee",
+                      "on-secondary-fixed-variant": "#55433c",
+                      "on-surface": "#1b1c19",
+                      "on-primary-container": "#6f84ac",
+                      "surface-variant": "#e4e2dd",
+                      "surface-dim": "#dbdad5",
+                      "on-surface-variant": "#44474e",
+                      "surface": "#fbf9f4",
+                      "inverse-primary": "#b1c7f2",
+                      "tertiary-fixed": "#e5e2e1",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "outline": "#74777f",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#d6e3ff",
+                      "inverse-surface": "#30312e",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1b1c19",
+                      "secondary": "#6e5a53",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#261813",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#f5dad1",
+                      "tertiary-container": "#1c1b1b",
+                      "secondary-fixed": "#f8ddd4",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "background": "#fbf9f4",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-secondary-container": "#725e57",
+                      "surface-container-highest": "#e4e2dd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "120px",
+                      "xl": "80px",
+                      "gutter": "32px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "lg": "48px",
+                      "xs": "4px",
+                      "margin-mobile": "20px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-sm": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg": ["Playfair Display"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-xl": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0px_10px_40px_rgba(51,51,51,0.04)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+</div>
+<a class="font-headline-md tracking-tighter text-primary uppercase" href="#">AETERNA</a>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary" href="#">Ritual (2)</a>
+</div>
+</div>
+</header>
+<main class="pt-[140px] pb-xl px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Your Ritual Cart</h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl">Each selection is prepared with intention. Your scents are carefully curated and waiting for their final destination.</p>
+</div>
+<div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-gutter items-start">
+<!-- Cart Items List -->
+<div class="lg:col-span-8 w-full space-y-md">
+<!-- Product Card 1 -->
+<div class="flex flex-col md:flex-row gap-md p-md bg-surface-container-low border border-black/5">
+<div class="w-full md:w-48 h-64 md:h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A high-end glass fragrance bottle labeled Lunar Cedar, sitting on a textured linen cloth in a sun-drenched minimalist room. The lighting is soft and golden, highlighting the amber liquid and the crisp typography of the label. The aesthetic is clean and luxurious, emphasizing premium stationery and bespoke fragrance design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQcH3KHNRKEqD5oHYTyKGH-KZT2jJCwTejpm5MNMQ09zyJcEhQF7D0vAQ5axzF0VKgp1NuhvsuniQ3yepvsTESsziZgFCN8ecj9BYP8yrq2WNoe8jQtGe64BSoC3At-0Ohaf3QFFs5U4hpVzS4zbB7kalAuYGC0A9vOe4_zhB93A3re_HQ8t-jUIumNXBaqYQKL7U8WFwLPiVZZo6ItyKu-E81zFqIG4KbJQPI1xT6JfRx6WtHauigjJ2JkPUnu_y2omjO87lf647q"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-xs">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-headline-sm text-primary">Lunar Cedar</h3>
+<p class="font-body-md font-medium text-primary">$185.00</p>
+</div>
+<p class="font-label-md uppercase text-on-surface-variant mt-1">Eau de Parfum | 100ml</p>
+<!-- Customization Section -->
+<div class="mt-4 pt-4 border-t border-black/10 flex items-start gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="edit">edit</span>
+<div>
+<p class="font-label-md text-on-surface-variant uppercase">Custom Engraving</p>
+<p class="font-body-sm italic text-primary">"For EL – With love"</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-6">
+<div class="flex items-center border border-black/10 h-10 px-2 bg-surface-container-lowest">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-label-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="text-on-surface-variant font-label-md uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex flex-col md:flex-row gap-md p-md bg-surface-container-low border border-black/5">
+<div class="w-full md:w-48 h-64 md:h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A sculptural black basalt incense holder with a thin wisp of smoke rising from a stick of sandalwood incense. The setting is a minimalist stone table against a soft beige wall. The mood is meditative and serene, reflecting a high-end editorial lifestyle. The lighting is diffused and natural, focusing on texture and form." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABmRpfDJYhyJLpfY28QRlhu4AHi-IFu0lMNFsNnLEWtKl95vBYgnBU_HqW2Uwl8Tp10noRX-5HIpv8PRt76WiufHhCI5g1CCkayzy3L7e1cCkso5xCK5ztnqUXujxcpUxpj-3APYtAc4hWoDtp_5Jhi2x1ncS9R_h5TmhfLGQyEEaa35XjjnHxVtQVm1VpMfKEJ5J4Dj9iV0SqNf6MyZmjS8zybH4lBcwnKIkuY-4SYv12ARi9wzMX7RZ7W5yJGH6892AHHDUbN9l2"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-xs">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-headline-sm text-primary">Midnight Incense</h3>
+<p class="font-body-md font-medium text-primary">$72.00</p>
+</div>
+<p class="font-label-md uppercase text-on-surface-variant mt-1">Set of 40 Cones | Sandalwood</p>
+</div>
+<div class="flex justify-between items-center mt-6">
+<div class="flex items-center border border-black/10 h-10 px-2 bg-surface-container-lowest">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-label-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="text-on-surface-variant font-label-md uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Free Gift Prompt -->
+<div class="bg-secondary-container/30 p-md flex items-center gap-md border border-secondary-container">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<p class="font-body-md font-medium text-secondary">Complimentary Discovery Set</p>
+<p class="font-body-sm text-on-secondary-container">Added to your order because you've spent over $200.</p>
+</div>
+</div>
+</div>
+<!-- Summary Sidebar -->
+<aside class="lg:col-span-4 w-full mt-lg lg:mt-0 sticky top-[120px]">
+<div class="bg-surface-container-high p-lg flex flex-col space-y-md">
+<h2 class="font-headline-sm text-primary border-b border-black/10 pb-4">Order Summary</h2>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>$257.00</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span class="italic">Calculated at next step</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Taxes</span>
+<span>$0.00</span>
+</div>
+</div>
+<div class="pt-4 border-t border-black/10 flex justify-between items-center mb-6">
+<span class="font-headline-sm text-primary">Total</span>
+<span class="font-headline-sm text-primary">$257.00</span>
+</div>
+<button class="w-full bg-primary text-background py-5 font-label-md uppercase tracking-[0.2em] transition-all hover:bg-on-surface-variant active:scale-[0.98] duration-300">
+                        Proceed to Checkout
+                    </button>
+<div class="pt-lg space-y-md">
+<div class="flex gap-sm items-start">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="verified">verified</span>
+<div>
+<p class="font-label-md uppercase text-primary">Ethical Craftsmanship</p>
+<p class="font-body-sm text-on-surface-variant">Sustainable ingredients, small-batch distilled in Grasse.</p>
+</div>
+</div>
+<div class="flex gap-sm items-start">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="package_2">package_2</span>
+<div>
+<p class="font-label-md uppercase text-primary">Conscious Shipping</p>
+<p class="font-body-sm text-on-surface-variant">All orders are shipped in 100% plastic-free, artisanal packaging.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Support Links -->
+<div class="mt-md px-md text-center">
+<a class="font-label-md uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 decoration-black/20" href="#">Questions? Ask an Atelierist</a>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-surface-container-low flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop space-y-8">
+<div class="font-headline-lg text-primary mb-8 uppercase tracking-tighter">AETERNA</div>
+<nav class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Atelier</a>
+<a class="font-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</nav>
+<div class="font-body-lg text-on-surface-variant text-center opacity-60">© 2024 AETERNA. THE ART OF INTENTION.</div>
+</footer>
+<script>
+        // Micro-interactions for quantity and scroll
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(btn.innerText.includes('add') || btn.innerText.includes('remove')) {
+                    const parent = btn.parentElement;
+                    const valueEl = parent.querySelector('span');
+                    let val = parseInt(valueEl.innerText);
+                    if(btn.querySelector('span').getAttribute('data-icon') === 'add') val++;
+                    else if(val > 1) val--;
+                    valueEl.innerText = val;
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('py-4');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.add('py-6');
+                header.classList.remove('py-4');
+            }
+        });
+    </script>
+</body></html>

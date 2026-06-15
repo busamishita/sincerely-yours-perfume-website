@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Philosophy | AETERNA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .editorial-line {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#495f84",
+                        "surface-container-high": "#eae8e3",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "primary-fixed-dim": "#b1c7f2",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#dbc1b8",
+                        "primary-container": "#001b3d",
+                        "on-primary-fixed-variant": "#31476b",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary-container": "#858383",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#f0eee9",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "on-secondary-fixed-variant": "#55433c",
+                        "on-surface": "#1b1c19",
+                        "on-primary-container": "#6f84ac",
+                        "surface-variant": "#e4e2dd",
+                        "surface-dim": "#dbdad5",
+                        "on-surface-variant": "#44474e",
+                        "surface": "#fbf9f4",
+                        "inverse-primary": "#b1c7f2",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "outline": "#74777f",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "secondary": "#6e5a53",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#261813",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#f5dad1",
+                        "tertiary-container": "#1c1b1b",
+                        "secondary-fixed": "#f8ddd4",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "background": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-secondary-container": "#725e57",
+                        "surface-container-highest": "#e4e2dd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "120px",
+                        "xl": "80px",
+                        "gutter": "32px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-mobile": "20px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["60px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl transition-all duration-300 shadow-[0px_10px_40px_rgba(51,51,51,0.04)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-primary-fixed">AETERNA</h1>
+</div>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b border-primary" href="#">The Philosophy</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-secondary-container transition-colors duration-500" href="#">Scent Rituals</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-secondary-container transition-colors duration-500" href="#">Journal</a>
+</div>
+<button class="font-label-md text-label-md uppercase tracking-widest text-primary">Ritual (0)</button>
+</div>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop mb-xl">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-end gap-md md:gap-xl">
+<div class="w-full md:w-2/3">
+<div class="overflow-hidden">
+<img class="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" data-alt="A high-end editorial lifestyle image of a minimalist stone studio flooded with soft morning light. A single ceramic vase sits on a textured linen-covered table next to a stack of handmade cotton paper. The atmosphere is serene and deeply personal, reflecting the brand's Ivory and Navy palette with subtle hints of Pale Blush in the light shadows. The composition is spacious and balanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBljQg42MSZkkCXvBmwsiy2pT5MtwMdh1H4X4LoP7ouu5ZfRH2b07Eknn3QQHaN9ABgld_8h111JZ48WctFiHnxp6Qd8z3hM5S6uMdf6C4jPuOwGoyEwKPD8ciy6CMHjP1ntJjoVajQ7SZhHHP9kvqaFUpMGGCWNG2G17e6_kSLeScw8JCLWjod3zyJVNctY5SGWCmER_jnzhk_5M9w8DfoBdqjhz8ACPgSomhMJSVv7bSDLLDeG3mayvTn0Ba3Y0nWmsDFr7rXj_W5"/>
+</div>
+</div>
+<div class="w-full md:w-1/3 pb-12">
+<h2 class="font-headline-xl text-headline-xl text-primary leading-none mb-6">Sincerely <br/><span class="italic font-medium">Yours</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The Art of Intention. A narrative of scent, soul, and the quiet spaces between moments.</p>
+</div>
+</div>
+</section>
+<!-- The Art of Intention -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-5 flex flex-col justify-center reveal-on-scroll">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary mb-base">Chapter I</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-lg">The Art of Intention</h3>
+<div class="editorial-line mb-lg"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md">At AETERNA, we believe that the objects we surround ourselves with should be an extension of our values. Every scent ritual is designed not just to fill a room, but to ground the spirit.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Our philosophy is rooted in the quiet study—the moment where thought meets paper, and where intention becomes form. It is the sophisticated romance of the everyday.</p>
+</div>
+<div class="md:col-span-6 md:col-start-7 reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="aspect-[4/5] bg-secondary-container p-lg flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A macro shot of thick, textured ivory cotton paper being embossed with a delicate serif logo. The lighting is low-contrast and soft, highlighting the tactile fibers of the paper. Hints of navy ink and pale blush shadows create a refined, bespoke aesthetic. The image captures the core brand identity of high-end tactile experiences and manual craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCKOImSMev0jfvuutpADnrp10d2WKBdSZ107a3EVjDd0a7tIJ5Sl5YEfjL_T7aVEahw7Y9bNIuLciNShINl6rtFBewmUkF6YrMGKExg8f8ITR6V6Ibd8BCNTzx4yNu7qfN-hM5uytupockTiYDkVlWLJzJQBdJz0Hla0i6uiD_wJCYMI5mMeLxk8bkYLcN6UaYcP_9sEISY1D0nSmA9lmv9wzNbYmebVBmrUoFe4BY_-hdMinhI5w0GYYBza8hbLazftsIuCz0CB90"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainably Sourced -->
+<section class="py-xl">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center gap-xl mb-lg">
+<div class="w-full md:w-1/2 order-2 md:order-1 reveal-on-scroll">
+<img class="w-full aspect-square object-cover" data-alt="A collection of raw botanical ingredients laid out on a dark navy marble surface. Dried petals, sandalwood pieces, and glass vials of clear oils are arranged with editorial precision. The scene is lit with cool-toned natural light, creating a moody yet sophisticated feel. The ivory and navy color palette is reinforced through the choice of materials and lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD74GVwd8-Mkt8zFaQkuhkUijDxwJm8JpvoCvApW75qDRethLHN0C0Lyi_vM25aS_ZfJagBcMhIkitUlwmtwNyY__uZntK9yiqGcbqB0Z9Y3T7SGWUEUZDEbqIk8bE5tApnj0s1F1aO36gx8ZAKJsMQDbBk9_cvAbzbOUu383-QiJ9vYpDR6sTJyzMyNHzCRv2OcNLvdkJFak6Htt1P5qbrmUu8I_AQnekuN0ZmkxFFpffCL1VmLbN0XabNZLhImrFPNVN4p8GmOi6a"/>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 reveal-on-scroll" style="transition-delay: 150ms;">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary mb-base">Chapter II</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-lg">Sustainably Sourced Ingredients</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md">We wander the globe not for the exotic, but for the ethical. Our palette is built from ingredients that respect the earth as much as they delight the senses.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-md font-label-md text-label-md uppercase text-on-surface-variant group">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed transition-transform group-hover:scale-150"></span>
+                                Traceable Vetiver from Haiti
+                            </li>
+<li class="flex items-center gap-md font-label-md text-label-md uppercase text-on-surface-variant group">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed transition-transform group-hover:scale-150"></span>
+                                Wild-harvested Cedarwood
+                            </li>
+<li class="flex items-center gap-md font-label-md text-label-md uppercase text-on-surface-variant group">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed transition-transform group-hover:scale-150"></span>
+                                Upcycled Rose Petal Distillate
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- The Atelier -->
+<section class="py-xl bg-surface-container-highest relative overflow-hidden">
+
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="text-center mb-xl reveal-on-scroll">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary mb-base">Chapter III</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-base">The Atelier</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Where tradition meets the contemporary. A sanctuary for the senses located in the heart of the historic district.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="bg-surface p-base mb-md shadow-[0px_4px_12px_rgba(0,0,0,0.03)]">
+<img class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A wide shot of a modern, airy atelier space with high ceilings and arched windows. Minimalist furniture in dark oak and navy upholstery fills the room. Tall shelves are stocked with amber glass bottles and porcelain vessels. The lighting is clean and bright, emphasizing a light-mode aesthetic with plenty of whitespace and refined architectural details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARq0CQgQ8u3AK235At3gPiJYOM573CwB5KjOnHulAQBBHfB1alGdm26I3UI-T-NQ8c2y8rA-nNUlhkz1BZzlxlaNAbqt-RGxvvzOdzQRor4ZDKZAJXTHGN_s9A4I8D2I-h0BIhRnAQ-MkxXSkIA1uzE27qCccmdDyDq0EBpCF-k3x6gvnpIUvWtgag_okMqzuxGmeloMfj8QkFo1zojRHmnUBLwnYzxfNI6hB5yq6BsNNzoKEsup6ynO962L6sws4GQytdNk8ALoEB"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-xs text-center">The Lab</h4>
+</div>
+<div class="reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="bg-surface p-base mb-md shadow-[0px_4px_12px_rgba(0,0,0,0.03)]">
+<img class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A focused image of a perfumer's workbench. Hand-written formulas on aged ivory paper are scattered among small scales and glass droppers. A single navy ribbon is draped over the edge of the table. The mood is one of focused creativity and craftsmanship. The color palette is strictly Ivory, Navy, and Beige, creating a cohesive and luxurious look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt--c0ysZk2X0iVSNbMd_HbFbiH8zguN7oBfHYgbZ0-LJrdFmQXQ9YXLd8qGYyR1BxV7FbLTr1jEhawlXw5AePX-LoESM5SxcXP8natu4tQqihSMMsjHylfDo0hdhE_OdbbrDSknrwnShmyXAoNO0xJwF18Jbb3evaVo2NTdk053G44ozDJHonyqpprxMIu0KPguC0WOyuQGM5lUDG3aQz7wBAPCXI5PEt-R9Qz-o-Dz3Ic_JgmA6j-JRKLWBWAG7RiQri_wuvVViy"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-xs text-center">The Composition</h4>
+</div>
+<div class="reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="bg-surface p-base mb-md shadow-[0px_4px_12px_rgba(0,0,0,0.03)]">
+<img class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A detail shot of a luxury boutique interior. Soft pale blush velvet curtains frame a display of minimalist white candle boxes. The lighting is warm and inviting, catching the gold foil accents on the packaging. The scene feels intimate and premium, showcasing the brand's attention to tactile detail and sophisticated editorial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF8D43Jnp8suOhZ1mxZ795clkOMXLBCSncnYK17_4g7CPT2GHAD1zi7vcrT8VIehqpAtYh5i9IrpRQ6r4mVmUwCw4ZIIEjA6ACFpb1Avn6rOyzpGHh8KXP2Gzi7GXimQyutdY_4oaj-vWoAfbJIQjHtjknIFVf5RvzMFHRFb04qbJvvUdkLjjtCfhO7Kj8Knl1V5kEAt4J3mPQ7kzvM8TlgRI2bK6ot18p3MBVWrjkdAt9bJLSh69Mx98GJKrgG8KJ0yt4XKSmLqvI"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-xs text-center">The Boutique</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-xl bg-surface border-y border-outline-variant/10">
+<div class="max-w-[800px] mx-auto px-margin-mobile text-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-lg italic">Join our journal for reflections on scent and the atelier.</h2>
+<div class="flex flex-col md:flex-row gap-sm items-center">
+<input class="w-full md:flex-1 bg-transparent border-b border-primary/20 py-4 font-body-md text-body-md focus:outline-none focus:border-primary transition-colors" placeholder="Email Address" type="email"/>
+<button class="w-full md:w-auto px-lg py-4 bg-primary text-surface font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-section-gap">
+<div class="flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop space-y-8 max-w-[1440px] mx-auto">
+<h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-fixed mb-8">AETERNA</h2>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">The Philosophy</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Scent Rituals</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Atelier</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Sustainability</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-opacity duration-300 opacity-70 hover:opacity-100" href="#">Journal</a>
+</div>
+<div class="editorial-line max-w-[400px]"></div>
+<p class="font-body-lg text-body-lg text-center text-primary dark:text-primary-fixed">© 2024 AETERNA. THE ART OF INTENTION.</p>
+</div>
+</footer>
+<script>
+        // Intersection Observer for reveal effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Simple scroll parallax for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('section img');
+            if(heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.1}px) scale(1.05)`;
+            }
+        });
+    </script>
+</body></html>
